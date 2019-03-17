@@ -12,6 +12,7 @@ def index():
     data = run(wksid, subid, msg_text)
     data[0] = '<div>匹配的最佳模版的id为: ' + data[0] + '</div>'
     data[1] = '<div>匹配的最佳模版的内容为: ' + data[1] + '</div>'
+    data[2] = '<div>原始的输入文本内容为:' + data[2] + '</div>'
     content = """
                 <div>绿色部分: 模版变量匹配正确<br>
                      红色部分: 模版内容匹配错误<br>
@@ -24,4 +25,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port='9995')

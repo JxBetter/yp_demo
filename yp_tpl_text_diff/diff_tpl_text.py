@@ -212,8 +212,11 @@ def run(wksid, subid, msg_text):
         # 5.根据转换操作输出模版和短信内容之间的差异
         output_tpl, output_text, output_des, output_html_tpl, output_html_text, output_html_des = show_diff(
             operations_list, best_tpl)
+        print('匹配的最佳模版的id为: {}'.format(best_tpl_id))
 
-        print('匹配的最佳模版为{}, {}'.format(best_tpl_id, best_tpl))
+        print('匹配的最佳模版为: {}'.format(best_tpl))
+
+        print('输入的短信文本为: {}'.format(msg_text))
 
         print('比较差异后的模版为: {}'.format(output_tpl))
 
@@ -221,13 +224,13 @@ def run(wksid, subid, msg_text):
 
         print('比较差异的描述内容为: {}'.format(output_des))
 
-        return [best_tpl_id, best_tpl, output_html_tpl, output_html_text, output_html_des]
+        return [best_tpl_id, best_tpl, msg_text, output_html_tpl, output_html_text, output_html_des]
     elif f == 0:
         print('短信文本和模版匹配正确，没有错误')
-        return ['', '', '<div>比较差异后的模版为: </div>', '<div>比较差异后的文本为: </div>', '<div>比较差异的描述内容为: 短信文本和模版匹配正确，没有错误</div>']
+        return ['', '', '', '<div>比较差异后的模版为: </div>', '<div>比较差异后的文本为: </div>', '<div>比较差异的描述内容为: 短信文本和模版匹配正确，没有错误</div>']
     else:
         print(data)
-        return ['', '', '<div>比较差异后的模版为: </div>', '<div>比较差异后的文本为: </div>', '<div>比较差异的描述内容为: {}</div>'.format(data)]
+        return ['', '', '', '<div>比较差异后的模版为: </div>', '<div>比较差异后的文本为: </div>', '<div>比较差异的描述内容为: {}</div>'.format(data)]
 
 
 if __name__ == '__main__':
